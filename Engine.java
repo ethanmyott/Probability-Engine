@@ -1,5 +1,10 @@
 import java.math.BigInteger;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
 
 public class Engine {
 	
@@ -75,4 +80,14 @@ public class Engine {
 	static BigInteger partition(int b, int x){
 		return Partition.PbOfx(b, x);
 	}
+	
+	//Principle of Inclusion-Exclusion
+	//returns size of the union of multiple sets
+	//positive test when used with integers and BigIntegers
+	static <S> int PIE(S[][] sets) {
+	     Set<S> set = new HashSet<S>();
+	     for(S[] s : sets)
+	     	set.addAll(Arrays.asList(s));
+	     return set.toArray((S[]) new Object[0]).length;
+	 }
 }
